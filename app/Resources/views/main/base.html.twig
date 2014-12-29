@@ -1,4 +1,4 @@
-{% set user_agent =  ''|browser %}
+{#% set user_agent =  ''|browser %#}
 {% set lang = app.session.get('lang') %}
 <!DOCTYPE html>
 <html>
@@ -31,7 +31,7 @@
             <script src="{{ asset('public/js/bootstrap/html5shiv.js') }}"></script>
             <script src="{{ asset('public/js/bootstrap/respond.min.js') }}"></script>
         <![endif]-->
-        <script src="{{ asset('public/js/jquery-2.1.3.js') }}"></script>
+        <script src="{{ asset('public/js/jquery-1.11.2.min.js') }}"></script>
         <script src="{{ asset('public/js/bootstrap/bootstrap.js') }}"></script>
     {% endblock %}
 </body>
