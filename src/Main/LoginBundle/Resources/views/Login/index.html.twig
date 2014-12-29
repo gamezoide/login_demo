@@ -2,32 +2,44 @@
 
 {% block stylesheets %}
     {{parent()}}
-     {% stylesheets
+    {% stylesheets
        '@MainLoginBundle/Resources/public/css/*'
-     %}
+    %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
 {% endblock stylesheets %}
 
 {% block body %}
-        
-        <div class="content panel panel-alternative">
-            
+
+    <div class="content panel panel-alternative">
+
         <div class="panel-heading">
-                
-        </div>
-        <div class="panel-body">
-         {{ name }}
-        </div>
 
         </div>
+        <div class="panel-body">
+            <form id="login" name="login" action="" type="post">
+                <div class="login-field">
+                    <div class="col-xs-4 login-label"><label for="user" id="label-user">Usuario</label> <span class="glyphicon glyphicon-user"></span></div>
+                    <div class="col-xs-6"><input type="text" class="form-control" id="user" name="user"></div>
+                </div>
+                <div class="login-field">
+                    <div class="col-xs-4 login-label"><label for="pass" id="label-pass">Contraseña</label> <span class="glyphicon glyphicon-asterisk"></span></div>
+                    <div class="col-xs-6"><input type="text" class="form-control" id="pass" name="pass"></div>
+                </div>
+                <div class="login-submit">
+                    <input type="submit" value="Accesar" id="login-submit" name="login-submit" class="btn btn-warning">
+                </div>
+            </form>
+        </div>
+
+    </div>
 {% endblock %}
-    
+
 {% block javascripts %}
     {{parent()}}
     {% javascripts 
             '@MainLoginBundle/Resources/public/js/*'
-     %}
-        <script src="{{ asset_url }}"></script>
+    %}
+    <script src="{{ asset_url }}"></script>
     {% endjavascripts %}    
 {% endblock %}

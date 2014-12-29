@@ -10,8 +10,7 @@ class LoginController extends Controller
     {
         //return $this->render('MainLoginBundle:Default:index.html.twig', array('name' => $name));
        
-        
-        
+        //hash('sha512', $pass);
         
         return $this->render('MainLoginBundle:Login:index.html.twig', array('name' => 'demo'));
     }
