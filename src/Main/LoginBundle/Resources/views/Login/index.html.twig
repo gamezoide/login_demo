@@ -17,7 +17,7 @@
 
         </div>
         <div class="panel-body">
-            <form id="login" name="login" action="" type="post">
+            <form id="login" name="login" action="{{ path('main_login_check') }}" type="post">
                 <div class="login-field">
                     <div class="col-xs-4 login-label"><label for="user" id="label-user">Usuario</label> <span class="glyphicon glyphicon-user"></span></div>
                     <div class="col-xs-6"><input type="text" class="form-control" id="user" name="user"></div>
@@ -33,6 +33,7 @@
         </div>
 
     </div>
+    <input type="hidden" id="welcome_path" value="{{ path('main_welcome') }}" />
 {% endblock %}
 
 {% block javascripts %}
@@ -41,5 +42,7 @@
             '@MainLoginBundle/Resources/public/js/*'
     %}
     <script src="{{ asset_url }}"></script>
+    <script src="{{ asset('public/js/validate/jquery.validate.js') }}"></script>
+    {#<script src="{{ asset('public/js/jquery.particleground.js') }}"></script>#}
     {% endjavascripts %}    
 {% endblock %}

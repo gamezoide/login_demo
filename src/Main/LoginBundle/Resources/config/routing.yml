@@ -1,3 +1,23 @@
-main_login_homepage:
+main:
+    path:     /
+    defaults: { _controller: MainLoginBundle:Login:index }
+    
+main_login:
     path:     /login
     defaults: { _controller: MainLoginBundle:Login:index }
+
+main_logout:
+    path: /logout
+
+main_check:
+    path: /login_check
+
+main_login_check:
+    path:     /open/login_check
+    defaults: { _controller: MainLoginBundle:Login:loginCheck }
+    requirements:
+        _method:  POST
+
+main_welcome:
+    path:     /welcome
+    defaults: { _controller: MainLoginBundle:Login:welcome }
