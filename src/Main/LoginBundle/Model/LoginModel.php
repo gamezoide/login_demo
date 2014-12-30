@@ -37,6 +37,20 @@ class LoginModel {
         $this->dbh = new \PDO("mysql:host=$this->host;dbname=$this->name;port=$this->port", $this->user, $this->pass, $options);
     }
 
+        public function getUser($args) {
+        $qry = 'SELECT * FROM admin WHERE usuario=:usuario AND pass=:pass';
+        $sth = $this->dbh->prepare($qry);
+        $sth->bindParam(':usuario', $args["usuario"], \PDO::PARAM_STR, 120);
+        $sth->bindParam(':pass', $args["pass"], \PDO::PARAM_STR, 120);
+        $sth->execute();
+        $status = $sth->execute();
+        $data = $sth->fetchAll();
+        $r = array('status' => $status, 'data' => $data);
+        $result = $this->orderByKey($r, "id", "onlydata");
+        return $result;
+    }
+    
+    
     public function getEstados($args) {
         $qry = 'SELECT id, nombre, abbr FROM tbl_estados WHERE id_pais=:id_pais ORDER BY nombre';
         $sth = $this->dbh->prepare($qry);
