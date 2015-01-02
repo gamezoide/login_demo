@@ -5,6 +5,7 @@ namespace Main\LoginBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Main\LoginBundle\Model\LoginModel;
+use Main\LoginBundle\Model\Profile;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class LoginController extends Controller {
@@ -37,8 +38,7 @@ class LoginController extends Controller {
         //ya que en el binding se indica el tipo de dato
 
         $result = $this->LoginModel->getUser($Args, TRUE);
-        print_r($result);
-        die(" resultado");
+        
         if (!$result['status']) {
             $response = new Response(json_encode($result));
             $response->headers->set('Content-Type', 'application/json');
@@ -54,7 +54,7 @@ class LoginController extends Controller {
         //Creamos el objeto Profile con los datos presentados por el formulario
         $user = new Profile($result['data'][0]['usuario'], $result['data'][0]['pass'], '', array('ROLE_USER')); //concatenar el rol
         $user->setData($result['data'][0]);
-
+        
         // Creamos el token
         $token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
         $this->container->get('security.context')->setToken($token);
