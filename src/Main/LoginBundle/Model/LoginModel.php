@@ -46,8 +46,8 @@ class LoginModel {
         $status = $sth->execute();
         $data = $sth->fetchAll();
         $r = array('status' => $status, 'data' => $data);
-        $result = $this->orderByKey($r, "id", "onlydata");
-        return $result;
+        //$result = $this->orderByKey($r, "id", "onlydata");
+        return $r;
     }
     
     
