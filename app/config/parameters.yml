@@ -12,3 +12,7 @@ parameters:
     mailer_password: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
+    
+    security.encoder.digest.class: Main\LoginBundle\Model\IxpoEncoder
+
+    base_parametro:

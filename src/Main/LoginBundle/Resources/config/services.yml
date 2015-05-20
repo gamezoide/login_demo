@@ -1,4 +1,8 @@
+parameters:
+    user_profile_provider.class: Main\LoginBundle\Model\ProfileProvider
+    user_profile_provider.fm_data:     %base_parametro%
+
 services:
-#    main_login.example:
-#        class: Main\LoginBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    user_profile_provider:
+        class: %user_profile_provider.class%
+        arguments:    ["@service_container"]
